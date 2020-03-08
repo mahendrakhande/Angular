@@ -1,0 +1,60 @@
+<div class="container">
+
+    <div class="d-flex justify-content-between mb-3">
+        <legend class="text-center font-weight-bold">Invoice List</legend>
+        <!-- <h4 class="text-center">Invoice List</h4> -->
+
+    </div>
+    <div class="d-flex justify-content-between mb-3">
+
+        <table class="table table-bordered table-hover table-sm">
+
+            <thead class="text-center font-weight-bold">
+                <tr>
+                    <th>Student Name</th>
+                    <th>Invoice Date</th>
+                    <th>Branch Name</th>
+                    <th>Course Name</th>
+                    <th>Course Start</th>
+                    <th>Course End </th>
+                    <th>Certificate Issue</th>
+                    <th>Invoice Rest</th>
+                    <th>Invoice Reference1</th>
+                    <th>Invoice Reference2</th>
+                    <th>Invoice Amount</th>
+                    <th>CGST</th>
+                    <th>SGST</th>
+                    <th>Total Invoice</th>
+                    <th>TDS</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let invoc of invoices">
+                    <tr>
+                        <td>{{invoc.student_id}}</td>
+                        <td>{{invoc.invoice_date|date:'d/M/y'}}</td>
+                        <td><span *ngFor="let a of branches">{{a.id==invoc.branch_id?a.branch_name:''}}</span></td>
+                        <td><span *ngFor="let b of courses">{{b.id==invoc.course_id?b.course_name:''}}</span></td>
+                        <td>{{invoc.start_date|date:'d/M/y'}}</td>
+                        <td>{{invoc.end_date|date:'d/M/y'}}</td>
+                        <td>{{invoc.certificate_issue ? 'Issued' : 'Not Issued'}}</td>
+                        <td>{{invoc.invoice_rest}}</td>
+                        <td>{{invoc.invoice_ref1}}</td>
+                        <td>{{invoc.invoice_ref2}}</td>
+                        <td>{{invoc.invoice_amount| currency:'INR'}}</td>
+                        <td>{{invoc.cgst}}</td>
+                        <td>{{invoc.sgst}}</td>
+                        <td>{{invoc.total_invoice| number:'3.0-3'}}</td>
+                        <td>{{invoc.tds}}</td>
+                        <td>{{invoc.net_amount| currency:'INR'}}</td>
+                        <!-- <td> -->
+                        <!-- <a href="javascript:void(0)" [routerLink]="['edit',emp.id]" >edit</a> | 
+              <a href="javascript:void(0)" (click)="deleteEmp(emp)">delete</a> -->
+                        <!-- </td> -->
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

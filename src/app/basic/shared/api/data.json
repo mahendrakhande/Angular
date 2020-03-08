@@ -1,0 +1,184 @@
+{
+  "login": [
+    {
+      "user_name": "mahendra@123",
+      "password": "mahendra@123"
+    },
+    {
+      "user_name": "admin@123",
+      "password": "admin@123"
+    }
+  ],
+  "student": [
+    {
+      "id": 1,
+      "student_name": "kajal balasaheb jagtap",
+      "email": "kajaljagtap6@gmail.com",
+      "contact": 8600251933,
+      "branch_name": "Hadapsar"
+    },
+    {
+      "id": 2,
+      "student_name": "Mahendra Lahu Khande",
+      "email": "mahendrakhande@gmail.com",
+      "contact": 9604515187,
+      "branch_name": "Hadapsar"
+    },
+    {
+      "id": 3,
+      "student_name": "Amol Tanaji Ghotale",
+      "email": "amolghotale@gmail.com",
+      "contact": 7264015924,
+      "branch_name": "Hadapsar"
+    },
+    {
+      "student_name": "Aksahy Ambadas Kandekar ",
+      "email": "akandekar36@gmail.com",
+      "mobile_no": "98765434210",
+      "branch_name": "Aundh",
+      "id": 5
+    }
+  ],
+  "branch": [
+    {
+      "id": 1,
+      "branch_name": "Hadapsar"
+    },
+    {
+      "id": 2,
+      "branch_name": "Bhavani peth"
+    },
+    {
+      "id": 3,
+      "branch_name": "Aundh"
+    },
+    {
+      "id": 4,
+      "branch_name": "Kondhwa"
+    }
+  ],
+  "course": [
+    {
+      "id": 1,
+      "course_name": "Java Developer"
+    },
+    {
+      "id": 2,
+      "course_name": "Angular"
+    },
+    {
+      "id": 3,
+      "course_name": "Digital Marketing"
+    },
+    {
+      "id": 4,
+      "course_name": "PHP"
+    }
+  ],
+  "invoice": [
+    {
+      "student_id": [
+        2,
+        3
+      ],
+      "invoice_date": "2020-01-02",
+      "branch_id": "2",
+      "course_id": "2",
+      "start_date": "2020-02-14",
+      "end_date": "2020-02-20",
+      "certificate_issue": true,
+      "invoice_rest": "2",
+      "invoice_ref1": 234,
+      "invoice_ref2": "",
+      "invoice_amount": 8848,
+      "cgst": 796.32,
+      "sgst": 796.32,
+      "total_invoice": 10440.64,
+      "tds": 884.8,
+      "net_amount": 9555.84,
+      "id": 5
+    },
+    {
+      "student_id": [
+        3
+      ],
+      "invoice_date": "2020-02-20",
+      "branch_id": "1",
+      "course_id": "4",
+      "start_date": "2019-12-25",
+      "end_date": "2020-02-28",
+      "certificate_issue": true,
+      "invoice_rest": "3",
+      "invoice_ref1": 23,
+      "invoice_ref2": 12,
+      "invoice_amount": 9866,
+      "cgst": 887.94,
+      "sgst": 887.94,
+      "total_invoice": 11641.880000000001,
+      "tds": 986.6,
+      "net_amount": 10655.28,
+      "id": 6
+    },
+    {
+      "student_id": [
+        2
+      ],
+      "invoice_date": "2020-01-23",
+      "branch_id": "3",
+      "course_id": "2",
+      "start_date": "2020-02-21",
+      "end_date": "2020-02-07",
+      "certificate_issue": true,
+      "invoice_rest": "2",
+      "invoice_ref1": 12,
+      "invoice_ref2": "",
+      "invoice_amount": 9367,
+      "cgst": 843.03,
+      "sgst": 843.03,
+      "total_invoice": 11053.060000000001,
+      "tds": 936.7,
+      "net_amount": 10116.36,
+      "id": 7
+    },
+    {
+      "student_id": [
+        2
+      ],
+      "invoice_date": "2020-02-21",
+      "branch_id": "2",
+      "course_id": "4",
+      "start_date": "2020-02-22",
+      "end_date": "2020-02-28",
+      "certificate_issue": true,
+      "invoice_rest": "1",
+      "invoice_amount": 3821,
+      "cgst": 343.89,
+      "sgst": 343.89,
+      "total_invoice": 4508.780000000001,
+      "tds": 382.1,
+      "net_amount": 4126.68,
+      "id": 8
+    },
+    {
+      "student_id": [
+        2,
+        3
+      ],
+      "invoice_date": "2020-02-13",
+      "branch_id": "2",
+      "course_id": "2",
+      "start_date": "2020-02-06",
+      "end_date": "2020-02-25",
+      "certificate_issue": true,
+      "invoice_rest": "1",
+      "invoice_ref1": 3,
+      "invoice_amount": 23456,
+      "cgst": 2111.04,
+      "sgst": 2111.04,
+      "total_invoice": 27678.08,
+      "tds": 2345.6,
+      "net_amount": 25332.480000000003,
+      "id": 9
+    }
+  ]
+}

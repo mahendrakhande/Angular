@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-6 container jumbotron">
+        <form [formGroup]="invoice" (ngSubmit)="studentDetails()">
+
+            <legend class="text-center col-mt-2 font-weight-bold">Student Details</legend>
+            <div class="form-group">
+                <label>Student Name:</label>
+                <input type="text" class="form-control" formControlName="student_name"
+                    placeholder="Enter Student Full Name" required>
+            </div>
+            <div *ngIf="invoice.controls['student_name'].invalid && invoice.controls['student_name'].touched"
+                class="alert alert-danger"> 
+                <div *ngIf="invoice.controls['student_name'].errors.required">Please Enter Student Name</div>
+          <div *ngIf="invoice.get('student_name').errors.pattern">Name should be a character</div>
+          {{ getNameErrors() }} 
+            </div>
+            <div class="form-group">
+                <label>Email Address:</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter Email Address"
+                    required>
+            </div>
+            <div *ngIf="invoice.controls['email'].invalid && invoice.controls['email'].touched"
+                class="alert alert-danger">
+                <div *ngIf="invoice.controls['email'].errors.required">Please Enter Email Address</div>
+            </div>
+            <div class="form-group">
+                <label>Mobile Number:</label>
+                <input type="tel" class="form-control" formControlName="mobile_no" placeholder="Enter Mobile Number"
+                    required>
+            </div>
+            <div *ngIf="invoice.controls['mobile_no'].invalid && invoice.controls['mobile_no'].touched"
+                class="alert alert-danger">
+                <div *ngIf="invoice.controls['mobile_no'].errors.required">Please Enter Mobile Number</div>
+            </div>
+            <div class="form-group">
+                <label>Branch Name:</label>
+                <select class="form-control" formControlName="branch_name" required>
+                    <option disabled>Select Branch</option>
+                    <option *ngFor="let branch of branches" [value]="branch.branch_name">{{branch.branch_name}}</option>
+                </select>
+            </div>
+            <div *ngIf="invoice.controls['branch_name'].invalid && invoice.controls['branch_name'].touched"
+                class="alert alert-danger">
+                <div *ngIf="invoice.controls['branch_name'].errors.required">Please Select Branch Name</div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-outline-primary btn-md" type="submit">Submit</button>&nbsp;&nbsp;
+                <button class="btn btn-outline-primary btn-md" type="button" routerLink="/invoiceList">Back</button>
+            </div>
+        </form>
+    </div>
+</div>

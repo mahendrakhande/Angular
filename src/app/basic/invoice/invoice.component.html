@@ -1,0 +1,118 @@
+<div class="row font-weight-bold">
+    <div class="container col-sm-6 jumbotron">
+        <form [formGroup]="invoice" (ngSubmit)="register()">
+
+            <div class="form-group">
+                <legend class="text-center col-mt-2 font-weight-bold">Invoice Data</legend>
+                <div class="form-group">
+                    <label>Student Name: </label>
+                    <select class="form-control" formControlName="student_id" multiple required>
+                        <option disabled>Select Student </option>
+                        <option *ngFor="let stud of students" [value]="stud.id">{{stud.student_name}}</option>
+                    </select> 
+                </div>
+                <div *ngIf="invoice.controls['student_id'].invalid && invoice.controls['student_id'].touched" class="alert alert-danger">
+                    <div *ngIf="invoice.controls['student_id'].errors.required">Select Student</div></div>
+                <div class="form-group">
+                    <label>Invoice Date:</label>
+                    <input type="date" class="form-control" formControlName="invoice_date" required>
+                </div>
+                <div *ngIf="invoice.controls['invoice_date'].invalid && invoice.controls['invoice_date'].touched" class="alert alert-danger">
+                    <div *ngIf="invoice.controls['invoice_date'].errors.required">Select Invoice Date</div></div>
+                <div class="form-group">
+                    <label>Branch Name:</label>
+                    <select class="form-control" formControlName="branch_id" required>
+                        <option disabled>Select Branch </option>
+                        <option *ngFor="let branch of branches" [value]="branch.id">{{branch.branch_name}}</option>
+                    </select>
+                </div>
+                <div *ngIf="invoice.controls['branch_id'].invalid && invoice.controls['branch_id'].touched" class="alert alert-danger">
+                    <div *ngIf="invoice.controls['branch_id'].errors.required">Select Branch Name</div></div>
+                <div class="form-group">
+                    <label>Course Name:</label>
+                    <select class="form-control" formControlName="course_id" required>
+                        <option disabled>Select Course </option>
+                        <option *ngFor="let course of courses" [value]="course.id">{{course.course_name}}</option>
+                    </select>
+                </div>
+                <div *ngIf="invoice.controls['course_id'].invalid && invoice.controls['course_id'].touched" class="alert alert-danger">
+                    <div *ngIf="invoice.controls['course_id'].errors.required">Select Course Name</div></div>
+                <div class="form-group">
+                    <label>Course Start:</label>
+                    <input type="date" class="form-control" formControlName="start_date" required>
+                </div>
+                <div *ngIf="invoice.controls['start_date'].invalid && invoice.controls['start_date'].touched" class="alert alert-danger">
+                    <div *ngIf="invoice.controls['start_date'].errors.required">Select Start Date</div></div>
+                <div class="form-group">
+                    <label>Course End:</label>
+                    <input type="date" class="form-control" formControlName="end_date" required>
+                </div>
+                <div *ngIf="invoice.controls['end_date'].invalid && invoice.controls['end_date'].touched" class="alert alert-danger">
+                    <div *ngIf="invoice.controls['end_date'].errors.required">Select End Date</div></div>
+                <div class="form-group">
+                    <label>Certificate Issue</label>&nbsp;&nbsp;
+                    <input type="checkbox" formControlName="certificate_issue" required>
+                </div>
+                <div *ngIf="invoice.controls['certificate_issue'].invalid && invoice.controls['certificate_issue'].touched" class="alert alert-danger">
+                    <div *ngIf="invoice.controls['certificate_issue'].errors.required"> Please Confirm Certificate Issued or Not</div></div>
+                <div class="form-group">
+                    <label>Invoice Rest:</label>
+                    <select class="form-control" formControlName="invoice_rest" (click)="selectInvoice()" required>
+                        <option disabled>Select Invoice </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div *ngIf="invoice.controls['invoice_rest'].invalid && invoice.controls['invoice_rest'].touched" class="alert alert-danger">
+                    <div *ngIf="invoice.controls['invoice_rest'].errors.required">Select Invoice Rest</div></div>
+                <div class="form-group" [hidden]="invoice_link">
+                    <label >Invoice Reference1:</label>
+                    <input type="number" class="form-control" formControlName="invoice_ref1"> 
+                </div>
+                
+                <div class="form-group" [hidden]="invoice_let">
+                    <label >Invoice Reference2:</label>
+                    <input type="number" class="form-control" formControlName="invoice_ref2"> 
+                </div>
+                <div class="form-group">
+                    <label>Invoice Amount:</label>
+                    <input type="number" class="form-control" formControlName="invoice_amount"
+                        placeholder="Enter Invoice Amount" (keyup)="calculate()" required>
+                </div>
+                <div *ngIf="invoice.controls['invoice_amount'].invalid && invoice.controls['invoice_amount'].touched" class="alert alert-danger">
+                    <div *ngIf="invoice.controls['invoice_amount'].errors.required">Enter Invoice Amount</div>
+                    <div *ngIf="invoice.get('invoice_amount').errors.pattern">Amount Should Be Number</div> 
+                    {{ getNumberErrors() }} 
+                </div>
+                <div class="form-group">
+                    <label>CGST:</label>
+                    <input type="text" class="form-control" formControlName="cgst" readonly required>
+                </div>
+                <div class="form-group">
+                    <label>SGST:</label>
+                    <input type="text" class="form-control" formControlName="sgst" readonly required>
+                </div>
+                <div class="form-group">
+                    <label>Total Invoice:</label>
+                    <input type="text" class="form-control" formControlName="total_invoice" readonly required>
+                </div>
+                <div class="form-group">
+                    <label>TDS:</label>
+                    <input type="text" class="form-control" formControlName="tds" readonly required>
+                </div>
+                <div class="form-group">
+                    <label>Net Amount:</label>
+                    <input type="text" class="form-control" formControlName="net_amount" readonly required>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-outline-primary" type="submit" [disabled]="invoice.invalid">Submit</button>&nbsp;
+                    <button class="btn btn-outline-primary" type="button" routerLink="/invoiceList">Back</button>
+                </div>
+            </div>
+ 
+        </form>
+        <!-- <P>{{invoice.value|json}}</P> -->
+    </div>
+</div>
